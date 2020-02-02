@@ -9,7 +9,27 @@ import Posts from './posts';
 import Loading from '../components/loading';
 import Err from '../components/error';
 
+class Blogs extends Component {
+  componentDidMount() {
+    this.props.getBlogs();
+  }
 
+  render() {
+    const { isFetching } = this.props.blogs;
+    const { isFetched } = this.props.blogs;
+    return (
+      <div className="container">
+        {isFetching ? (
+          <Loading />
+        ) : isFetched ? (
+          <Posts posts={this.props.blogs.posts} />
+        ) : (
+          <Err />
+        )}
+      </div>
+    );
+  }
+}
 
 function mapStateToProps(state) {
   return {
