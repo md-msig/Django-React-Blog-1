@@ -29,4 +29,5 @@ def jwt_response_payload_handler(token, user=None, request=None):
 
 
 
-
+class FacebookLogin(SocialLoginView):
+    adapter_class = FacebookOAuth2Adapter
