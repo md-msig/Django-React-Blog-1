@@ -37,20 +37,6 @@ class PostListView(ListAPIView):
 	queryset = Post.objects.all()
 	serializer_class = PostListSerializer
 
-
-class PostDetailView(RetrieveAPIView):
-	lookup_field = 'pk'
-	queryset = Post.objects.all()
-	serializer_class = PostListSerializer
-
-
-class PostUpdateView(RetrieveUpdateAPIView):
-	lookup_field = 'pk'
-	queryset = Post.objects.all()
-	serializer_class = PostCreateSerializer
-	permission_classes = (IsOwnerOrReadOnly,)
-
-
 class AuthorPostView(APIView):
 
 	@staticmethod
