@@ -37,19 +37,23 @@ class PostListView(ListAPIView):
 	queryset = Post.objects.all()
 	serializer_class = PostListSerializer
 
+class AuthorPostView(APIView):
 
-class PostDetailView(RetrieveAPIView):
+	@staticmethod
+	def get(request, username):
+		posts = get_list_or_404(Post, author__username=username)
+		post_data = PostListSerializer(posts, many=True)
+		return Response(post_data.data)
+
+class PostDeleteView(DestroyAPIView):
 	lookup_field = 'pk'
 	queryset = Post.objects.all()
 	serializer_class = PostListSerializer
 
 
-class PostUpdateView(RetrieveUpdateAPIView):
-	lookup_field = 'pk'
+class PostListView(ListAPIView):
 	queryset = Post.objects.all()
-	serializer_class = PostCreateSerializer
-	permission_classes = (IsOwnerOrReadOnly,)
-
+	serializer_class = PostListSerializer
 
 class AuthorPostView(APIView):
 
