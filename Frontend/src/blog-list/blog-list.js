@@ -2,6 +2,14 @@ import {FETCHING_BLOGS} from "../actions";
 import {FETCHED_BLOGS} from "../actions";
 import {ERROR} from "../actions";
 import {POST_DELETED} from "../actions";
+import {
+	AUTH_USER,
+	UNAUTH_USER,
+	SIGNUP_USER,
+	AUTH_ERROR,
+	SIGNUP_ERROR
+
+} from '../actions/types';
 
 const intialState = {
 	isFetching:false,
@@ -9,6 +17,7 @@ const intialState = {
 	error:null,
 	posts:[]
 }
+
 
 export default function(state=intialState,action){
 	switch(action.type){
