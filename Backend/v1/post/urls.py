@@ -18,5 +18,11 @@ urlpatterns =  [
 	url(r'^update/(?P<pk>[\d-]+)/$', PostUpdateView.as_view(), name='Update'),
 	url(r'^delete/(?P<pk>[\d-]+)/$', PostDeleteView.as_view(), name='Delete'),
 	url(r'^author/(?P<username>[-\w]+)/$', AuthorPostView.as_view(), name='Author-Post')
+	url(r'^update/(?P<pk>[\d-]+)/$', PostUpdateView.as_view(), name='Update'),
+	url(r'^delete/(?P<pk>[\d-]+)/$', PostDeleteView.as_view(), name='Delete'),
+	url(r'^author/(?P<username>[-\w]+)/$', AuthorPostView.as_view(), name='Author-Post')
+	url(r'^update/(?P<pk>[\d-]+)/$', PostUpdateView.as_view(), name='Update'),
+	url(r'^delete/(?P<pk>[\d-]+)/$', PostDeleteView.as_view(), name='Delete'),
+	url(r'^author/(?P<username>[-\w]+)/$', AuthorPostView.as_view(), name='Author-Post')
 
 ]
