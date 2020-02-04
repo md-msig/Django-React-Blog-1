@@ -59,7 +59,6 @@ class Header extends Component {
       <div className="contianer">
         <div className="container">
           <div className="columns">
-            <div className="column col-lg-12">
               <header className="navbar">
                 <section className="navbar-section">
                   <Link to="/" className="btn btn-link">
@@ -75,15 +74,12 @@ class Header extends Component {
                 </section>
                 {this.renderAuthMode(authenticated)}
               </header>
-            </div>
           </div>
         </div>
         <Suspense fallback={<div />}>
           <Route exact path="/" component={requireAuth(Blogs)} />
-          <Route path="/signup" component={Signup} />
           <Route path="/signin" component={Signin} />
           <Route path="/create_post" component={requireAuth(PostNew)} />
-          <Route path="/view_post/:id" component={requireAuth(ViewPost)} />
           <Route path="/edit_post/:id" component={requireAuth(EditPost)} />
         </Suspense>
       </div>
