@@ -25,5 +25,33 @@ export default function(state=intialState,action){
 			return {...state,posts:action.payload.data}
 			break;
 	}
+	switch(action.type){
+		case FETCHING_BLOGS:
+			return {...state,isFetching:true};
+			break;
+		case FETCHED_BLOGS:
+			return {...state,isFetching:false,isFetched:true,posts:action.payload.data};
+			break;
+		case ERROR:
+			return {...state,isFetching:false,isFetched:false,error:action.payload};
+			break;
+		case POST_DELETED:
+			return {...state,posts:action.payload.data}
+			break;
+	}
+	switch(action.type){
+		case FETCHING_BLOGS:
+			return {...state,isFetching:true};
+			break;
+		case FETCHED_BLOGS:
+			return {...state,isFetching:false,isFetched:true,posts:action.payload.data};
+			break;
+		case ERROR:
+			return {...state,isFetching:false,isFetched:false,error:action.payload};
+			break;
+		case POST_DELETED:
+			return {...state,posts:action.payload.data}
+			break;
+	}
 	return state;
 }
