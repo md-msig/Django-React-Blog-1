@@ -35,10 +35,14 @@ class EditForm extends Component {
           type="text"
           name="content"
         />
+        <Field component={renderInput} label="Title" type="text" name="title" />
+        <Field
+          component={renderInput}
+          label="Content"
+          type="text"
+          name="content"
+        />
         <div className="form-group">
-          <button className="btn btn-primary" type="submit">
-            Save
-          </button>
           <Link to={`/view_post/${data.id}`} className="btn btn-default">
             {' '}
             Cancel

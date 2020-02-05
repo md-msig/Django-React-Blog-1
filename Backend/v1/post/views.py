@@ -45,11 +45,6 @@ class AuthorPostView(APIView):
 		post_data = PostListSerializer(posts, many=True)
 		return Response(post_data.data)
 
-class PostDeleteView(DestroyAPIView):
-	lookup_field = 'pk'
-	queryset = Post.objects.all()
-	serializer_class = PostListSerializer
-
 
 class PostListView(ListAPIView):
 	queryset = Post.objects.all()
