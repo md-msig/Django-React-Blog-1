@@ -53,6 +53,30 @@ class Signin extends Component {
               <button type="submit" className="btn btn-primary">
                 Sign In
               </button>
+              <Field
+              component={renderInput}
+              type="text"
+              name="username"
+              label="Username"
+            />
+            <Field
+              component={renderInput}
+              type="password"
+              name="password"
+              label="Paassword"
+            />
+            <Field
+              component={renderInput}
+              type="text"
+              name="username"
+              label="Username"
+            />
+            <Field
+              component={renderInput}
+              type="password"
+              name="password"
+              label="Paassword"
+            />
             </div>
           </form>
         </div>

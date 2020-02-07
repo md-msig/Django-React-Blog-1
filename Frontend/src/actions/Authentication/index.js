@@ -17,6 +17,9 @@ export function signup(formValue, callback) {
         dispatch({ type: SIGNUP_USER });
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('username', username);
+        localStorage.setItem('token', response.data.username);
+        localStorage.setItem('username', username);
+        localStorage.setItem('password', password);
         callback();
       })
       .catch((error) => {
