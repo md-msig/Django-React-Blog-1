@@ -36,7 +36,45 @@ export function getBlogs() {
       });
   };
 }
+export function deletePost(id, callback) {
+  const SUB_URL = `blog/api/delete/${id}`;
+  const url = `${ROOT_URL}${SUB_URL}`;
+  const request = axios.delete(url, tokenHeader());
 
+  return (dispatch) => {
+    dispatch({ type: DELETING_POST });
+    request.then(() => {
+      dispatch({ type: DELETED_POST });
+      callback();
+    });
+  };
+}
+
+export function viewPost(id) {
+  const SUB_URL = `blog/api/detail/${id}`;
+  const url = `${ROOT_URL}${SUB_URL}`;
+  const request = axios.get(url, tokenHeader());
+  return (dispatch) => {
+    dispatch({ type: FETCHING_POST });
+    request.then((response) => {
+      dispatch({ type: FETCHED_POST, payload: response.data });
+    });
+  };
+}
+
+export function editPost(fromValue, id, callback) {
+  console.log(fromValue);
+  const SUB_URL = `blog/api/update/${id}/`;
+  const url = `${ROOT_URL}${SUB_URL}`;
+  const request = axios.put(url, fromValue, tokenHeader());
+  return (dispatch) => {
+    dispatch({ type: EDITING_POST });
+    request.then((response) => {
+      dispatch({ type: EDITED_POST });
+      callback();
+    });
+  };
+}
 export function createPost(fromValue, callback) {
   const SUB_URL = 'blog/api/create/';
   const url = `${ROOT_URL}${SUB_URL}`;
