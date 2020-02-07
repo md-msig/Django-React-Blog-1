@@ -12,11 +12,12 @@ export const CREATED_POST = 'CREATE_POST';
 export const DELETING_POST = 'DELETING_POST';
 export const DELETED_POST = 'DELETED_POST';
 
+export const EDITING_POST = 'EDITING_POST';
+export const EDITED_POST = 'EDITED_POST';
+
 export const FETCHING_POST = 'FETCHING_POST';
 export const FETCHED_POST = 'FETCHED_POST';
 
-export const EDITING_POST = 'EDITING_POST';
-export const EDITED_POST = 'EDITED_POST';
 
 const ROOT_URL = 'https://djminapi.herokuapp.com/';
 
