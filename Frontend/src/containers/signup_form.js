@@ -43,4 +43,18 @@ function mapStateToProps(state){
 		auth:state.auth
 	}
 }
+
+Signup = reduxForm({
+	form:'SignupForm',
+	fields:['email','username','password']
+})(Signup);
+
+Signup = withRouter(Signup); 
+
+function mapStateToProps(state){
+	return{
+		auth:state.auth
+	}
+}
+
 export default connect(mapStateToProps,{signup})(Signup);

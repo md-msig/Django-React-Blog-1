@@ -12,11 +12,12 @@ export const CREATED_POST = 'CREATE_POST';
 export const DELETING_POST = 'DELETING_POST';
 export const DELETED_POST = 'DELETED_POST';
 
+export const EDITING_POST = 'EDITING_POST';
+export const EDITED_POST = 'EDITED_POST';
+
 export const FETCHING_POST = 'FETCHING_POST';
 export const FETCHED_POST = 'FETCHED_POST';
 
-export const EDITING_POST = 'EDITING_POST';
-export const EDITED_POST = 'EDITED_POST';
 
 const ROOT_URL = 'https://djminapi.herokuapp.com/';
 
@@ -36,28 +37,6 @@ export function getBlogs() {
       });
   };
 }
-
-export function createPost(fromValue, callback) {
-  const SUB_URL = 'blog/api/create/';
-  const url = `${ROOT_URL}${SUB_URL}`;
-  // console.log(props);
-  console.log(tokenHeader());
-  const request = axios
-    .post(url, fromValue, tokenHeader())
-    .then(() => callback());
-
-  return {
-    type: CREATED_POST,
-    payload: request,
-  };
-  /* return (dispatch) => {
-	  dispatch({type:CREATING_POST});
-		request.then((response)=>{
-			dispatch({type:CREATED_POST,payload:response.data});
-		});
-	} */
-}
-
 export function deletePost(id, callback) {
   const SUB_URL = `blog/api/delete/${id}`;
   const url = `${ROOT_URL}${SUB_URL}`;
@@ -97,3 +76,25 @@ export function editPost(fromValue, id, callback) {
     });
   };
 }
+export function createPost(fromValue, callback) {
+  const SUB_URL = 'blog/api/create/';
+  const url = `${ROOT_URL}${SUB_URL}`;
+  // console.log(props);
+  console.log(tokenHeader());
+  const request = axios
+    .post(url, fromValue, tokenHeader())
+    .then(() => callback());
+
+  return {
+    type: CREATED_POST,
+    payload: request,
+  };
+  /* return (dispatch) => {
+	  dispatch({type:CREATING_POST});
+		request.then((response)=>{
+			dispatch({type:CREATED_POST,payload:response.data});
+		});
+	} */
+}
+
+
